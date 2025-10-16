@@ -1,0 +1,18 @@
+<header>
+  <a href="/"><h1>GameZone</h1></a>
+  <div>
+    <script>
+      function changeTheme() {
+        const body = document.querySelector('body');
+        body.classList.toggle('light');
+      }
+    </script>
+    <img
+      class="theme-icon"
+      onclick="changeTheme()"
+      src="/assets/theme.svg"
+      alt="theme changer"
+      width="32px"
+    />
+  </div>
+</header>

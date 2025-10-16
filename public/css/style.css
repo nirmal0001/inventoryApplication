@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  /* hsl (fallback color) */
+  --bg-dark: hsl(336 0% 1%);
+  --bg: hsl(NaN 0% 4%);
+  --bg-light: hsl(0 0% 9%);
+  --text: hsl(300 0% 95%);
+  --text-muted: hsl(300 0% 69%);
+  --highlight: hsl(330 0% 39%);
+  --border: hsl(0 0% 28%);
+  --border-muted: hsl(300 0% 18%);
+  --primary: hsl(0 66% 75%);
+  --secondary: hsl(183 52% 57%);
+  --danger: hsl(9 26% 64%);
+  --warning: hsl(52 19% 57%);
+  --success: hsl(146 17% 59%);
+  --info: hsl(217 28% 65%);
+  /* oklch */
+  --bg-dark: oklch(0.1 0 20);
+  --bg: oklch(0.15 0 20);
+  --bg-light: oklch(0.2 0 20);
+  --text: oklch(0.96 0 20);
+  --text-muted: oklch(0.76 0 20);
+  --highlight: oklch(0.5 0 20);
+  --border: oklch(0.4 0 20);
+  --border-muted: oklch(0.3 0 20);
+  --primary: oklch(0.76 0.1 20);
+  --secondary: oklch(0.76 0.1 200);
+  --danger: oklch(0.7 0.05 30);
+  --warning: oklch(0.7 0.05 100);
+  --success: oklch(0.7 0.05 160);
+  --info: oklch(0.7 0.05 260);
+}
+body.light {
+  /* hsl (fallback color) */
+  --bg-dark: hsl(0 0% 90%);
+  --bg: hsl(300 0% 95%);
+  --bg-light: hsl(300 50% 100%);
+  --text: hsl(NaN 0% 4%);
+  --text-muted: hsl(0 0% 28%);
+  --highlight: hsl(300 50% 100%);
+  --border: hsl(NaN 0% 50%);
+  --border-muted: hsl(300 0% 62%);
+  --primary: hsl(357 44% 32%);
+  --secondary: hsl(183 100% 9%);
+  --danger: hsl(9 21% 41%);
+  --warning: hsl(52 23% 34%);
+  --success: hsl(147 19% 36%);
+  --info: hsl(217 22% 41%);
+  /* oklch */
+  --bg-dark: oklch(0.92 0 20);
+  --bg: oklch(0.96 0 20);
+  --bg-light: oklch(1 0 20);
+  --text: oklch(0.15 0 20);
+  --text-muted: oklch(0.4 0 20);
+  --highlight: oklch(1 0 20);
+  --border: oklch(0.6 0 20);
+  --border-muted: oklch(0.7 0 20);
+  --primary: oklch(0.4 0.1 20);
+  --secondary: oklch(0.4 0.1 200);
+  --danger: oklch(0.5 0.05 30);
+  --warning: oklch(0.5 0.05 100);
+  --success: oklch(0.5 0.05 160);
+  --info: oklch(0.5 0.05 260);
+}
+html {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+  font-family: 'Noto Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}
+body {
+  background: var(--bg-dark);
+  color: var(--text-muted);
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg);
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
+  & .theme-icon {
+    margin-right: 1em;
+  }
+}
+
+/* * {
+  border: 2px solid white;
+} */
