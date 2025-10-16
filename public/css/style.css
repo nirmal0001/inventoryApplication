@@ -31,6 +31,10 @@
   --warning: oklch(0.7 0.05 100);
   --success: oklch(0.7 0.05 160);
   --info: oklch(0.7 0.05 260);
+
+  --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+  --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+  --border-card: 1px solid var(--border-muted);
 }
 body.light {
   /* hsl (fallback color) */
@@ -63,6 +67,10 @@ body.light {
   --warning: oklch(0.5 0.05 100);
   --success: oklch(0.5 0.05 160);
   --info: oklch(0.5 0.05 260);
+
+  --gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+  --gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+  --border-card: 1px solid var(--bg);
 }
 html {
   margin: 0px;
@@ -76,12 +84,13 @@ html {
 body {
   background: var(--bg-dark);
   color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
   min-height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 header {
+  flex-shrink: 0;
   color: var(--text);
   display: flex;
   align-items: center;
@@ -96,6 +105,91 @@ header {
   }
 }
 
-/* * {
-  border: 2px solid white;
-} */
+main {
+  margin-top: 1em;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+@scope (.home-item) {
+  :scope {
+    display: grid;
+    grid-template:
+      'game'
+      'genre'
+      'developer';
+    gap: 1em;
+    background: var(--gradient);
+    padding: 2em;
+    border-radius: 1em;
+  }
+  :scope:hover {
+    background: var(--gradient-hover);
+  }
+
+  .game {
+    grid-area: game;
+    padding: 1em;
+    border: 1px solid var(--border);
+    border-radius: 0.7em;
+    background: var(--bg);
+
+    & img {
+      height: 300px;
+      object-fit: cover;
+      border-radius: 0.4em 0.4em 0 0;
+    }
+  }
+  .genre {
+    grid-area: genre;
+  }
+  .developer {
+    grid-area: developer;
+  }
+  & button {
+    min-width: 100%;
+    background: var(--bg-light);
+    padding: 1em;
+    border: var(--border-card);
+    border-radius: 0.5em;
+    margin-top: 0.5em;
+    color: var(--text);
+    font-weight: 500;
+    border-top: 1px solid var(--highlight);
+    letter-spacing: 2px;
+    box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+  }
+
+  & button:hover {
+    transform: translateY(-2px);
+    scale: 0.98;
+  }
+}
+
+@media (width>600px) {
+  header {
+    justify-content: space-around;
+  }
+  @scope (.home-item) {
+    :scope {
+      grid-template:
+        'game genre'
+        'game developer';
+    }
+
+    & a {
+      display: contents;
+    }
+    & img {
+      height: 500px;
+    }
+    & button {
+      font-weight: 900;
+      color: var(--text-muted);
+    }
+    & .game-button {
+      color: var(--text);
+    }
+  }
+}

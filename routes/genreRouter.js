@@ -3,13 +3,13 @@ const genreController = require('../controllers/genreController');
 
 const genreRouter = Router();
 
-genreRouter.post('/create', genreController.createGenre);
+// genreRouter.post('/create', genreController.createGenre);
 
 genreRouter.get('/', genreController.index);
-genreRouter.get('/:id', genreController.showGenre);
+// genreRouter.get('/:id', genreController.showGenre);
 
-genreRouter.post('/update/:id', genreController.updateGenre);
+// genreRouter.post('/update/:id', genreController.updateGenre);
 
-genreRouter.delete('/delete/:id', genreController.deleteGenre);
+// genreRouter.delete('/delete/:id', genreController.deleteGenre);
 
 module.exports = genreRouter;

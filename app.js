@@ -12,11 +12,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
 const homeRouter = require('./routes/homeRouter');
-// const genreRouter = require('./routes/genreRouter');
+const genreRouter = require('./routes/genreRouter');
 // const gameRouter = require('./routes/gameRouter');
 // const developerRouter = require('./routes/developerRouter');
 app.use('/', homeRouter);
-// app.use('/genre', genreRouter);
+app.use('/genre', genreRouter);
 // app.use('/game', gameRouter);
 // app.use('/developer', developerRouter);
 
