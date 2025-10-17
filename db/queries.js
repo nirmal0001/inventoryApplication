@@ -1,4 +1,4 @@
-const pool = require('./pool');
+const pool = require('../db/pool');
 
 // CREATE
 async function createGenre(genreName) {
@@ -99,3 +99,5 @@ async function deleteDeveloper(id) {
 async function deleteGame(id) {
   await pool.query('DELETE FROM game WHERE id = $1', [id]);
 }
+
+module.exports ={getAllGenre}
