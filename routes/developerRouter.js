@@ -10,6 +10,6 @@ developerRouter.get('/', developerController.index);
 
 // developerRouter.post('/update/:id', developerController.updateDeveloper);
 
-// developerRouter.delete('/delete/:id', developerController.deleteDeveloper);
+developerRouter.get('/delete/:id', developerController.deleteDeveloper);
 
 module.exports = developerRouter;

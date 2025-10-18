@@ -10,6 +10,6 @@ genreRouter.get('/', genreController.index);
 
 // genreRouter.post('/update/:id', genreController.updateGenre);
 
-// genreRouter.delete('/delete/:id', genreController.deleteGenre);
+genreRouter.get('/delete/:id', genreController.deleteGenre);
 
 module.exports = genreRouter;

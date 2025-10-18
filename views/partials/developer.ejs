@@ -1,28 +1,28 @@
 <main class="genre">
   <script>
-    function goToEditGenre(id) {
-      location.href = '/genre/edit/' + id;
+    function goToEditDeveloper(id) {
+      location.href = '/developer/edit/' + id;
     }
 
-    function deleteGenre(id, name) {
+    function deleteDeveloper(id, name) {
       if (confirm(`do you wish to delete ${name}`)) {
-        location.href = '/genre/delete/' + id;
+        location.href = '/developer/delete/' + id;
       }
     }
   </script>
-  <h2>Select a Genre</h2>
+  <h2>Select a developer</h2>
   <ul class="genre-items">
     <% for (let index = 0; index < data.length; index++) { %>
     <li>
-      <a class="genre-link" href="/genre/<%= data[index].id %>">
+      <a class="genre-link" href="/developer/<%= data[index].id %>">
         <span><%= data[index].name %></span>
       </a>
       <div class="genre-buttons">
-        <button onclick="goToEditGenre('<%= data[index].id %>')">
+        <button onclick="goToEditDeveloper('<%= data[index].id %>')">
           <img src="/assets/edit.svg" alt="edit" width="16px" />
         </button>
         <button
-          onclick="deleteGenre('<%= data[index].id %>', '<%= data[index].name %>')"
+          onclick="deleteDeveloper('<%= data[index].id %>', '<%= data[index].name %>')"
         >
           <img src="/assets/delete.svg" alt="delete" width="16px" />
         </button>
