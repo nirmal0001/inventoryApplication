@@ -1,5 +1,14 @@
-const { getAllDeveloper, deleteDeveloper } = require('../db/queries');
-const { param, validationResult, matchedData } = require('express-validator');
+const {
+  getAllDeveloper,
+  deleteDeveloper,
+  updateDeveloper,
+} = require('../db/queries');
+const {
+  param,
+  body,
+  validationResult,
+  matchedData,
+} = require('express-validator');
 
 exports.index = async (req, res) => {
   const data = await getAllDeveloper();
@@ -22,10 +31,33 @@ exports.deleteDeveloper = [
   async (req, res) => {
     const result = validationResult(req);
     if (!result.isEmpty()) {
-      console.log(result.array());
+      return res.render('/', { errors: result.array() });
     }
     const id = matchedData(req).id;
     await deleteDeveloper(id);
     res.redirect('/developer');
+  },
+];
+
+const updateValidator = [
+  body('id').trim().isInt().withMessage('update id should be numeric').toInt(),
+  body('name')
+    .trim()
+    .isString()
+    .withMessage('name must be a string')
+    .notEmpty()
+    .withMessage('name is required'),
+];
+
+exports.updateDeveloper = [
+  ...updateValidator,
+  async (req, res) => {
+    const result = validationResult(req);
+    if (!result.isEmpty()) {
+      return res.render('/', { errors: result.array() });
+    }
+    const { id, name } = matchedData(req);
+    await updateDeveloper(id, name);
+    res.redirect('/genre');
   },
 ];

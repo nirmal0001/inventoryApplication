@@ -1,0 +1,58 @@
+@scope (.home-item) {
+  :scope {
+    display: grid;
+    grid-template:
+      'game'
+      'genre'
+      'developer';
+    gap: 1em;
+    background: var(--gradient);
+    padding: 2em;
+    border-radius: 1em;
+  }
+
+  :scope:hover {
+    background: var(--gradient-hover);
+  }
+
+  .game {
+    grid-area: game;
+    padding: 1em;
+    border: 1px solid var(--border);
+    border-radius: 0.7em;
+    background: var(--bg);
+
+    & img {
+      height: 300px;
+      object-fit: cover;
+      border-radius: 0.4em 0.4em 0 0;
+    }
+  }
+
+  .genre {
+    grid-area: genre;
+  }
+
+  .developer {
+    grid-area: developer;
+  }
+
+  & button {
+    min-width: 100%;
+    background: var(--bg-light);
+    padding: 1em;
+    border: var(--border-card);
+    border-radius: 0.5em;
+    margin-top: 0.5em;
+    color: var(--text);
+    font-weight: 500;
+    border-top: 1px solid var(--highlight);
+    letter-spacing: 2px;
+    box-shadow: var(--shadow-com);
+  }
+
+  & button:hover {
+    transform: translateY(-2px);
+    scale: 0.98;
+  }
+}

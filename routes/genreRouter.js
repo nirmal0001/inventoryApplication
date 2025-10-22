@@ -8,7 +8,7 @@ const genreRouter = Router();
 genreRouter.get('/', genreController.index);
 // genreRouter.get('/:id', genreController.showGenre);
 
-// genreRouter.post('/update/:id', genreController.updateGenre);
+genreRouter.post('/update', genreController.updateGenre);
 
 genreRouter.get('/delete/:id', genreController.deleteGenre);
 

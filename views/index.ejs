@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <%- include('partials/header') %> <% if (content=='home') { %> <%-
-    include('partials/home') %> <% } %> <% if (content=='genre') { %> <%-
-    include('partials/genre') %> <% } %> <% if (content=='developer') { %> <%-
-    include('partials/developer') %> <% } %>
+    <%- include('partials/header') %>
+    <!-- error page -->
+    <%- include('partials/errors') %>
+    <!-- error page -->
+    <% if (content=='home') { %> <%- include('partials/home') %> <% } %> <% if
+    (content=='genre') { %> <%- include('partials/genre') %> <% } %> <% if
+    (content=='developer') { %> <%- include('partials/developer') %> <% } %>
   </body>
 </html>

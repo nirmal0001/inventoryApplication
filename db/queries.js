@@ -104,4 +104,11 @@ async function deleteGame(id) {
   await pool.query('DELETE FROM game WHERE id = $1', [id]);
 }
 
-module.exports = { getAllGenre, deleteGenre, getAllDeveloper, deleteDeveloper };
+module.exports = {
+  getAllGenre,
+  deleteGenre,
+  updateGenre,
+  getAllDeveloper,
+  deleteDeveloper,
+  updateDeveloper,
+};

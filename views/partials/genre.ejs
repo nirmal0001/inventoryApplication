@@ -1,15 +1,5 @@
 <main class="genre">
-  <script>
-    function goToEditGenre(id) {
-      location.href = '/genre/edit/' + id;
-    }
-
-    function deleteGenre(id, name) {
-      if (confirm(`do you wish to delete ${name}`)) {
-        location.href = '/genre/delete/' + id;
-      }
-    }
-  </script>
+  <%- include('genreAndDeveloperEdit', {route: 'genre'}) %>
   <h2>Select a Genre</h2>
   <ul class="genre-items">
     <% for (let index = 0; index < data.length; index++) { %>
@@ -18,7 +8,9 @@
         <span><%= data[index].name %></span>
       </a>
       <div class="genre-buttons">
-        <button onclick="goToEditGenre('<%= data[index].id %>')">
+        <button
+          onclick="goToEditGenre('<%= data[index].id %>', '<%= data[index].name %>')"
+        >
           <img src="/assets/edit.svg" alt="edit" width="16px" />
         </button>
         <button
@@ -30,4 +22,37 @@
     </li>
     <% } %>
   </ul>
+
+  <button onclick="goToCreateGenre()">create a Genre</button>
+  <script defer>
+    const dialog = document.querySelector('.update-dialog');
+    const dialogClose = document.querySelector('.dialog-close');
+    const updateID = document.querySelector('#updateId');
+    const nameInput = document.querySelector('#name');
+    const updateFrom = document.querySelector('.update-form');
+    const submitButton = document.querySelector('button[type=submit]');
+    dialogClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      dialog.close();
+    });
+    function goToEditGenre(id, name) {
+      updateID.value = Number(id);
+      nameInput.value = name;
+      submitButton.innerText = 'UPDATE';
+      updateFrom.action = '/genre/update';
+      dialog.showModal();
+    }
+
+    function goToCreateGenre() {
+      nameInput.value = '';
+      submitButton.innerText = 'CREATE';
+      updateFrom.action = '/genre/create';
+      dialog.showModal();
+    }
+    function deleteGenre(id, name) {
+      if (confirm(`do you wish to delete ${name}`)) {
+        location.href = '/genre/delete/' + id;
+      }
+    }
+  </script>
 </main>

@@ -1,0 +1,16 @@
+button {
+  padding: 1em 3em;
+  background: var(--gradient);
+  color: var(--text);
+  border: 1px solid var(--border-card);
+  border-top: var(--highlight);
+  border-radius: 1em;
+  font-size: 1.3rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-com);
+}
+
+button:hover {
+  background: var(--gradient-hover);
+  transform: scale(98%) translateY(-2px);
+}

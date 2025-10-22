@@ -8,7 +8,7 @@ const developerRouter = Router();
 developerRouter.get('/', developerController.index);
 // developerRouter.get('/:id', developerController.showDeveloper);
 
-// developerRouter.post('/update/:id', developerController.updateDeveloper);
+developerRouter.post('/update', developerController.updateDeveloper);
 
 developerRouter.get('/delete/:id', developerController.deleteDeveloper);
 

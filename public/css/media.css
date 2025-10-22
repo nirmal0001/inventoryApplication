@@ -1,0 +1,36 @@
+@media (width>600px) {
+  header {
+    justify-content: space-around;
+  }
+
+  @scope (.home-item) {
+    :scope {
+      grid-template:
+        'game genre'
+        'game developer';
+    }
+
+    & a {
+      display: contents;
+    }
+
+    & img {
+      height: 500px;
+    }
+
+    & button {
+      font-weight: 900;
+      color: var(--text-muted);
+    }
+
+    & .game-button {
+      color: var(--text);
+    }
+  }
+
+  @scope (.genre) {
+    .genre-items {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+}
