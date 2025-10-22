@@ -33,6 +33,6 @@ exports.deleteGame = [
     const id = matchedData(req).id;
 
     await deleteGame(id);
-    res.redirect('/genre');
+    res.redirect('/game');
   },
 ];

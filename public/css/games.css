@@ -8,7 +8,7 @@
   border: 2px solid var(--border-muted);
   min-width: min(1080px, calc(100dvw - 20em));
   border-radius: 1em;
-  padding: max(2em, 5vw);
+  padding: min(2em, 5vw);
   margin: 1em;
 }
 

@@ -3,6 +3,7 @@ const {
   deleteGenre,
   updateGenre,
   createGenre,
+  getGamesFromGenre,
 } = require('../db/queries');
 const {
   param,
@@ -19,12 +20,28 @@ exports.index = async (req, res) => {
     data,
   });
 };
-
 const idValidator = [
   param('id')
     .isNumeric()
     .withMessage('you need a valid id for this route')
     .toInt(),
+];
+exports.showGames = [
+  idValidator,
+  async (req, res) => {
+    const result = validationResult(req);
+    if (!result.isEmpty()) {
+      return res.render('/', { errors: result.array() });
+    }
+    const id = matchedData(req).id;
+    const data = await getGamesFromGenre(id);
+    res.render('index', {
+      content: 'game',
+      title: 'Browse games',
+      pageTitle: 'Games',
+      data: data,
+    });
+  },
 ];
 
 exports.deleteGenre = [

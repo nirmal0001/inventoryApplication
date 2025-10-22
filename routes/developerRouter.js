@@ -6,7 +6,7 @@ const developerRouter = Router();
 developerRouter.post('/create', developerController.createDeveloper);
 
 developerRouter.get('/', developerController.index);
-// developerRouter.get('/:id', developerController.showDeveloper);
+developerRouter.get('/:id', developerController.showGames);
 
 developerRouter.post('/update', developerController.updateDeveloper);
 

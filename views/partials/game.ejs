@@ -22,10 +22,17 @@
 
         <div class="card-buttons">
           <button class="card-update">Update</button>
-          <button class="card-delete">Delete</button>
+          <button class="card-delete" onclick="deleteGame('<%= game.id %>')">
+            Delete
+          </button>
         </div>
       </div>
     </article>
     <% }) %>
   </div>
+  <script defer>
+    function deleteGame(id) {
+      location.href = `/game/delete/${id}`;
+    }
+  </script>
 </main>

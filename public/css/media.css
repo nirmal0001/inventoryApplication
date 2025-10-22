@@ -36,6 +36,6 @@
 
   .game-cards {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    margin-inline: 5em;
+    margin-inline: 2em 3em;
   }
 }

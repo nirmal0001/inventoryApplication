@@ -3,6 +3,7 @@ const {
   deleteDeveloper,
   updateDeveloper,
   createDeveloper,
+  getGamesFromDeveloper,
 } = require('../db/queries');
 const {
   param,
@@ -25,6 +26,23 @@ const idValidator = [
     .isNumeric()
     .withMessage('you need a valid id for this route')
     .toInt(),
+];
+exports.showGames = [
+  idValidator,
+  async (req, res) => {
+    const result = validationResult(req);
+    if (!result.isEmpty()) {
+      return res.render('/', { errors: result.array() });
+    }
+    const id = matchedData(req).id;
+    const data = await getGamesFromDeveloper(id);
+    res.render('index', {
+      content: 'game',
+      title: 'Browse games',
+      pageTitle: 'Games',
+      data: data,
+    });
+  },
 ];
 
 exports.deleteDeveloper = [

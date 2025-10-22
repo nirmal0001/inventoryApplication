@@ -6,7 +6,7 @@ const genreRouter = Router();
 genreRouter.post('/create', genreController.createGenre);
 
 genreRouter.get('/', genreController.index);
-// genreRouter.get('/:id', genreController.showGenre);
+genreRouter.get('/:id', genreController.showGames);
 
 genreRouter.post('/update', genreController.updateGenre);
 
