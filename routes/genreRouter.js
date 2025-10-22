@@ -3,7 +3,7 @@ const genreController = require('../controllers/genreController');
 
 const genreRouter = Router();
 
-// genreRouter.post('/create', genreController.createGenre);
+genreRouter.post('/create', genreController.createGenre);
 
 genreRouter.get('/', genreController.index);
 // genreRouter.get('/:id', genreController.showGenre);

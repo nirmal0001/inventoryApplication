@@ -22,7 +22,7 @@
     </li>
     <% } %>
   </ul>
-  <button onclick="goToCreateDeveloper()">create a Genre</button>
+  <button onclick="goToCreateDeveloper()">create a Developer</button>
   <script defer>
     const dialog = document.querySelector('.update-dialog');
     const dialogClose = document.querySelector('.dialog-close');
@@ -42,9 +42,10 @@
       dialog.showModal();
     }
     function goToCreateDeveloper() {
+      updateID.value = Number('2');
       nameInput.value = '';
       submitButton.innerText = 'CREATE';
-      updateFrom.action = '/genre/create';
+      updateFrom.action = '/developer/create';
       dialog.showModal();
     }
     function deleteDeveloper(id, name) {

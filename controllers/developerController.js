@@ -2,6 +2,7 @@ const {
   getAllDeveloper,
   deleteDeveloper,
   updateDeveloper,
+  createDeveloper,
 } = require('../db/queries');
 const {
   param,
@@ -58,6 +59,19 @@ exports.updateDeveloper = [
     }
     const { id, name } = matchedData(req);
     await updateDeveloper(id, name);
-    res.redirect('/genre');
+    res.redirect('/developer');
+  },
+];
+
+exports.createDeveloper = [
+  ...updateValidator,
+  async (req, res) => {
+    const result = validationResult(req);
+    if (!result.isEmpty()) {
+      return res.render('/', { errors: result.array() });
+    }
+    const { name } = matchedData(req);
+    await createDeveloper(name);
+    res.redirect('/developer');
   },
 ];

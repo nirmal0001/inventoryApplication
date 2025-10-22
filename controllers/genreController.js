@@ -1,4 +1,9 @@
-const { getAllGenre, deleteGenre, updateGenre } = require('../db/queries');
+const {
+  getAllGenre,
+  deleteGenre,
+  updateGenre,
+  createGenre,
+} = require('../db/queries');
 const {
   param,
   validationResult,
@@ -54,6 +59,19 @@ exports.updateGenre = [
     }
     const { id, name } = matchedData(req);
     await updateGenre(id, name);
+    res.redirect('/genre');
+  },
+];
+
+exports.createGenre = [
+  ...updateValidator,
+  async (req, res) => {
+    const result = validationResult(req);
+    if (!result.isEmpty()) {
+      return res.render('/', { errors: result.array() });
+    }
+    const { name } = matchedData(req);
+    await createGenre(name);
     res.redirect('/genre');
   },
 ];
