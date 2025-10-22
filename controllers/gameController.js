@@ -1,4 +1,4 @@
-const { deleteGame } = require('../db/queries');
+const { deleteGame, getGame, getAllGames } = require('../db/queries');
 const {
   param,
   validationResult,
@@ -14,10 +14,12 @@ const idValidator = [
 ];
 
 exports.index = async (req, res) => {
+  const data = await getAllGames();
   res.render('index', {
     content: 'game',
     title: 'Browse games',
-    pageTitle: 'game',
+    pageTitle: 'Games',
+    data: data,
   });
 };
 

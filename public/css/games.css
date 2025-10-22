@@ -1,0 +1,67 @@
+.games-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, min(calc(100dvw - 5em), 290px));
+  grid-auto-rows: min-content;
+  gap: 1em;
+  justify-content: center;
+  background: var(--bg);
+  border: 2px solid var(--border-muted);
+  min-width: min(1080px, calc(100dvw - 20em));
+  border-radius: 1em;
+  padding: max(2em, 5vw);
+  margin: 1em;
+}
+
+.game-card {
+  background: var(--bg-light);
+  padding: 1em 2em;
+  border: 1px solid var(--border);
+  border-radius: 0.7em;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.5em;
+  color: var(--text-muted);
+}
+.poster {
+  height: 230px;
+}
+.poster > img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.game-card > .title,
+h4 {
+  color: var(--text);
+}
+.game-card > .title {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-buttons > button {
+  flex-basis: 110px;
+  flex-shrink: 0;
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  border-top: 1px solid var(--highlight);
+  text-align: center;
+}
+.card-update {
+  background: var(--primary);
+}
+.card-delete {
+  background: var(--secondary);
+}
+.card-buttons > button:hover {
+  background: inherit;
+}

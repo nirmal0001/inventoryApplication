@@ -1,6 +1,31 @@
 <main class="game">
   <h2><%= pageTitle %></h2>
-  <div>
-    <article></article>
+
+  <div class="games-cards">
+    <% data.forEach(game => { %>
+    <article class="game-card">
+      <div class="poster">
+        <img src="<%= game.poster_url %>" alt="<%= game.name %>" />
+      </div>
+
+      <div>
+        <p class="title"><%= game.name %></p>
+        <div>
+          <h4>Description:</h4>
+          <p><%= game.description %></p>
+        </div>
+
+        <div>
+          <h4>Platforms:</h4>
+          <p><%= game.platform %></p>
+        </div>
+
+        <div class="card-buttons">
+          <button class="card-update">Update</button>
+          <button class="card-delete">Delete</button>
+        </div>
+      </div>
+    </article>
+    <% }) %>
   </div>
 </main>

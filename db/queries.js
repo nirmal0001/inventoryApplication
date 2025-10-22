@@ -44,7 +44,10 @@ async function getAllGenre() {
   const { rows } = await pool.query('SELECT * FROM genre');
   return rows;
 }
-
+async function getAllGames() {
+  const { rows } = await pool.query('SELECT * FROM game');
+  return rows;
+}
 async function getGamesFromGenre(genreId) {
   const { rows } = await pool.query(
     'SELECT g.* FROM game g JOIN game_genres gg ON g.id = gg.game_id WHERE gg.genre_id = $1',
@@ -115,6 +118,7 @@ module.exports = {
   createDeveloper,
   deleteGame,
   updateGame,
+  getAllGames,
   getGame,
   getGamesFromGenre,
   getGamesFromDeveloper,
