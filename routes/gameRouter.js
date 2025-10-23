@@ -7,7 +7,7 @@ const gameRouter = Router();
 
 gameRouter.get('/', gameController.index);
 
-// gameRouter.post('/update/:id', gameController.updateGame);
+gameRouter.post('/update', gameController.updateGame);
 
 gameRouter.get('/delete/:id', gameController.deleteGame);
 

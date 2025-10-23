@@ -21,7 +21,13 @@
         </div>
 
         <div class="card-buttons">
-          <button class="card-update">Update</button>
+          <button
+            class="card-update"
+            onclick='goToEditGame(<%- JSON.stringify(game) %>)'
+          >
+            Edit
+          </button>
+
           <button class="card-delete" onclick="deleteGame('<%= game.id %>')">
             Delete
           </button>
@@ -30,7 +36,33 @@
     </article>
     <% }) %>
   </div>
+  <button onclick="location.href='/game/create'" style="margin-bottom: 3em;">create a Game</button>
+  <%- include('updateGame') %>
   <script defer>
+    const dialog = document.querySelector('.update-dialog');
+    const dialogClose = document.querySelector('.dialog-close');
+    const updateID = document.querySelector('#updateId');
+    const nameInput = document.querySelector('#name');
+    const descriptionInput = document.querySelector('#description');
+    const urlInput = document.querySelector('#url');
+    const platformInput = document.querySelector('#platform')
+    const updateFrom = document.querySelector('.update-form');
+    const submitButton = document.querySelector('button[type=submit]');
+    dialogClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      dialog.close();
+    });
+
+    function goToEditGame(game) {
+      updateID.value = Number(game.id);
+      nameInput.value = game.name;
+      descriptionInput.value = game.description;
+      urlInput.value = game.poster_url;
+      platformInput.value = game.platform;
+      updateFrom.action = '/game/update';
+      dialog.showModal();
+    }
+
     function deleteGame(id) {
       location.href = `/game/delete/${id}`;
     }

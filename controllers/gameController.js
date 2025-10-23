@@ -1,4 +1,9 @@
-const { deleteGame, getGame, getAllGames } = require('../db/queries');
+const {
+  deleteGame,
+  getGame,
+  getAllGames,
+  updateGame,
+} = require('../db/queries');
 const {
   param,
   validationResult,
@@ -34,5 +39,40 @@ exports.deleteGame = [
 
     await deleteGame(id);
     res.redirect('/game');
+  },
+];
+
+const updateValidator = [
+  body('id').trim().isInt().withMessage('update id should be numeric').toInt(),
+  body('name')
+    .trim()
+    .isString()
+    .withMessage('name must be a string')
+    .notEmpty()
+    .withMessage('name is required'),
+  body('description')
+    .trim()
+    .isString()
+    .withMessage('Description is required for a game'),
+  body('poster_url')
+    .trim()
+    .isURL()
+    .withMessage('a valid url to image is required'),
+  body('platform')
+    .trim()
+    .notEmpty()
+    .withMessage('please specify the platform where game is available on'),
+];
+
+exports.updateGame = [
+  updateValidator,
+  async (req, res) => {
+    const result = validationResult(req);
+    if (!result.isEmpty()) {
+      return res.render('/', { errors: result.array() });
+    }
+    const data = matchedData(req);
+    await updateGame(data);
+    await res.redirect('/game');
   },
 ];

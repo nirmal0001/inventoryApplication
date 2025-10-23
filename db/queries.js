@@ -87,7 +87,7 @@ async function updateDeveloper(id, developerName) {
   ]);
 }
 
-async function updateGame(id, name, description, poster_url, platform) {
+async function updateGame({ id, name, description, poster_url, platform }) {
   await pool.query(
     'UPDATE game SET name = $2, description = $3, poster_url = $4, platform = $5 WHERE id = $1',
     [id, name, description, poster_url, platform]
