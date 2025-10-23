@@ -39,3 +39,6 @@
     margin-inline: 2em 3em;
   }
 }
+@view-transition {
+  navigation: auto;
+}

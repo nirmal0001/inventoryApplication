@@ -1,6 +1,6 @@
 <main class="genre">
   <%- include('genreAndDeveloperEdit', {route: 'developer'}) %>
-  <h2>Select a developer</h2>
+  <h2>Select a Studios</h2>
   <ul class="genre-items">
     <% for (let index = 0; index < data.length; index++) { %>
     <li>
@@ -22,7 +22,7 @@
     </li>
     <% } %>
   </ul>
-  <button onclick="goToCreateDeveloper()">create a Developer</button>
+  <button onclick="goToCreateDeveloper()">create a Studios</button>
   <script defer>
     const dialog = document.querySelector('.update-dialog');
     const dialogClose = document.querySelector('.dialog-close');

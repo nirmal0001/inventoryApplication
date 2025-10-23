@@ -6,6 +6,8 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://unpkg.com/slim-select@latest/dist/slimselect.js"></script>
+    <link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet"></link>
   </head>
   <body>
     <%- include('partials/header') %>
@@ -13,11 +15,11 @@
     <%- include('partials/errors') %>
     <!-- error page -->
 
-    <% if (locals.content) { %> <% if (content=='home') { %> <%-
-    include('partials/home') %> <% } %> <% if (content=='genre') { %> <%-
-    include('partials/genre') %> <% } %> <% if (content=='developer') { %> <%-
-    include('partials/developer') %> <% } %> <% if (content=='game') { %> <%-
-    include('partials/game') %> <% } %>
+    <% if (locals.content) { %> <% if (content == 'home') { %> <%-
+    include('partials/home') %> <% } %> <% if (content == 'genre') { %> <%-
+    include('partials/genre') %> <% } %> <% if (content == 'developer') { %> <%-
+    include('partials/developer') %> <% } %> <% if (content == 'game') { %> <%-
+    include('partials/game') %> <% } %> <% if (content == 'createGame') { %> <%-
+    include('partials/createGame') %> <% } %> <% } %>
   </body>
-  <% } %>
 </html>

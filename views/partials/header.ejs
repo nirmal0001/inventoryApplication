@@ -2,9 +2,19 @@
   <a href="/"><h1>GameZone</h1></a>
   <div>
     <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'true') {
+          document.body.classList.add('light');
+        }
+      });
+
       function changeTheme() {
         const body = document.querySelector('body');
         body.classList.toggle('light');
+
+        const isLight = body.classList.contains('light');
+        localStorage.setItem('theme', isLight);
       }
     </script>
     <img

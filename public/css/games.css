@@ -30,12 +30,13 @@
   object-fit: cover;
   height: 100%;
   width: 100%;
+  /* aspect-ratio: 2/3; */
 }
-.game-card > .title,
+.title,
 h4 {
   color: var(--text);
 }
-.game-card > .title {
+.title {
   font-size: 1.5rem;
   font-weight: 500;
 }

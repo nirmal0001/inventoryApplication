@@ -31,7 +31,7 @@ async function createDeveloperGame(gameId, developerId) {
   );
 }
 
-async function createGame(name, description, poster_url, platform) {
+async function createGame({ name, description, poster_url, platform }) {
   const { rows } = await pool.query(
     'INSERT INTO game (name, description, poster_url, platform) VALUES ($1, $2, $3, $4) RETURNING id',
     [name, description, poster_url, platform]
@@ -120,6 +120,7 @@ module.exports = {
   updateGame,
   getAllGames,
   getGame,
+  createGame,
   getGamesFromGenre,
   getGamesFromDeveloper,
   createDeveloperGame,

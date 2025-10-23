@@ -1,0 +1,103 @@
+<main class="create-game">
+  <form
+    class="update-form"
+    action="/game/create"
+    method="post"
+    style="min-width: max(280px, 40vw); margin: 1em 2em"
+  >
+    <div class="form-group" style="display: none">
+      <label for="updateId">ID:</label>
+      <input id="updateId" type="number" name="id" />
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" required />
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <input type="text" name="description" id="description" required />
+    </div>
+    <div class="form-group">
+      <label for="url">Poster url:</label>
+      <input type="text" name="poster_url" id="url" required />
+    </div>
+    <div class="form-group">
+      <label for="platform">Platform:</label>
+      <input
+        type="text"
+        name="platform"
+        id="platform"
+        required
+        placeholder="Pc, Console, Ps3"
+      />
+    </div>
+    <div class="form-group">
+      <label for="developer">Studios:</label>
+      <!-- make a multi select -->
+      <select name="developer" id="developer" multiple="multiple">
+        <% developers.forEach(developer => { %>
+        <option class="option" value="<%= developer.id %>">
+          <%= developer.name %>
+        </option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="createDeveloper">Create Studios:</label>
+      <!-- make a multi select -->
+      <input
+        type="text"
+        name="createDeveloper"
+        id="createDeveloper"
+        placeholder="studio-one, studio-two, studio-three..."
+      />
+    </div>
+    <div class="form-group">
+      <label for="genre">Genre:</label>
+      <select name="genre" id="genre" multiple="multiple">
+        <% genres.forEach(genre => { %>
+        <option class="option" value="<%= genre.id %>">
+          <%= genre.name %>
+        </option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="createGenre">Create Genre:</label>
+      <input
+        type="text"
+        name="createGenre"
+        id="createGenre"
+        placeholder="genre, genre-two, genre-three..."
+      />
+    </div>
+    <p>
+      Hold <kbd>Ctrl</kbd> (or <kbd>Cmd</kbd> on Mac) to select multiple
+      options.
+    </p>
+    <button type="submit">Create</button>
+    <button onclick="goBack()">Back</button>
+  </form>
+
+  <script>
+    new SlimSelect({
+      select: '#genre',
+    });
+    new SlimSelect({
+      select: '#developer',
+    });
+  </script>
+  <script defer>
+    const updateID = document.querySelector('#updateId');
+    const nameInput = document.querySelector('#name');
+    const descriptionInput = document.querySelector('#description');
+    const urlInput = document.querySelector('#url');
+    const platformInput = document.querySelector('#platform');
+    const submitButton = document.querySelector('button[type=submit]');
+    function goBack(e) {
+      e.preventDefault();
+      location.href = '/game';
+    }
+  </script>
+</main>

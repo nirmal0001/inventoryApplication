@@ -4,7 +4,7 @@ const gameController = require('../controllers/gameController');
 const gameRouter = Router();
 
 gameRouter.get('/create', gameController.createGameGet);
-// gameRouter.post('/create', gameController.createGamePost);
+gameRouter.post('/create', gameController.createGamePost);
 
 gameRouter.get('/', gameController.index);
 
