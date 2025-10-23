@@ -31,7 +31,7 @@ exports.showGames = [
   async (req, res) => {
     const result = validationResult(req);
     if (!result.isEmpty()) {
-      return res.render('/', { errors: result.array() });
+      return res.render('index', { title: 'error', errors: result.array() });
     }
     const id = matchedData(req).id;
     const data = await getGamesFromGenre(id);
@@ -49,7 +49,7 @@ exports.deleteGenre = [
   async (req, res) => {
     const result = validationResult(req);
     if (!result.isEmpty()) {
-      return res.render('/', { errors: result.array() });
+      return res.render('index', { title: 'error', errors: result.array() });
     }
     const id = matchedData(req).id;
     await deleteGenre(id);
@@ -72,7 +72,7 @@ exports.updateGenre = [
   async (req, res) => {
     const result = validationResult(req);
     if (!result.isEmpty()) {
-      return res.render('/', { errors: result.array() });
+      return res.render('index', { title: 'error', errors: result.array() });
     }
     const { id, name } = matchedData(req);
     await updateGenre(id, name);
@@ -85,7 +85,7 @@ exports.createGenre = [
   async (req, res) => {
     const result = validationResult(req);
     if (!result.isEmpty()) {
-      return res.render('/', { errors: result.array() });
+      return res.render('index', { title: 'error', errors: result.array() });
     }
     const { name } = matchedData(req);
     await createGenre(name);

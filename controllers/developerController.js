@@ -32,7 +32,7 @@ exports.showGames = [
   async (req, res) => {
     const result = validationResult(req);
     if (!result.isEmpty()) {
-      return res.render('/', { errors: result.array() });
+      return res.render('index', { title: 'error', errors: result.array() });
     }
     const id = matchedData(req).id;
     const data = await getGamesFromDeveloper(id);
@@ -50,7 +50,7 @@ exports.deleteDeveloper = [
   async (req, res) => {
     const result = validationResult(req);
     if (!result.isEmpty()) {
-      return res.render('/', { errors: result.array() });
+      return res.render('index', { title: 'error', errors: result.array() });
     }
     const id = matchedData(req).id;
     await deleteDeveloper(id);
@@ -73,7 +73,7 @@ exports.updateDeveloper = [
   async (req, res) => {
     const result = validationResult(req);
     if (!result.isEmpty()) {
-      return res.render('/', { errors: result.array() });
+      return res.render('index', { title: 'error', errors: result.array() });
     }
     const { id, name } = matchedData(req);
     await updateDeveloper(id, name);
@@ -86,7 +86,7 @@ exports.createDeveloper = [
   async (req, res) => {
     const result = validationResult(req);
     if (!result.isEmpty()) {
-      return res.render('/', { errors: result.array() });
+      return res.render('index', { title: 'error', errors: result.array() });
     }
     const { name } = matchedData(req);
     await createDeveloper(name);

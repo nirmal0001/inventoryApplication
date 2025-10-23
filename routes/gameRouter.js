@@ -3,7 +3,8 @@ const gameController = require('../controllers/gameController');
 
 const gameRouter = Router();
 
-// gameRouter.post('/create', gameController.createGame);
+gameRouter.get('/create', gameController.createGameGet);
+// gameRouter.post('/create', gameController.createGamePost);
 
 gameRouter.get('/', gameController.index);
 

@@ -33,7 +33,7 @@ exports.deleteGame = [
   async (req, res) => {
     const result = validationResult(req);
     if (!result.isEmpty()) {
-      return res.render('/', { errors: result.array() });
+      return res.render('/index', { errors: result.array() });
     }
     const id = matchedData(req).id;
 
@@ -52,7 +52,7 @@ const updateValidator = [
     .withMessage('name is required'),
   body('description')
     .trim()
-    .isString()
+    .notEmpty()
     .withMessage('Description is required for a game'),
   body('poster_url')
     .trim()
@@ -69,10 +69,14 @@ exports.updateGame = [
   async (req, res) => {
     const result = validationResult(req);
     if (!result.isEmpty()) {
-      return res.render('/', { errors: result.array() });
+      return res.render('index', { title: 'error', errors: result.array() });
     }
     const data = matchedData(req);
     await updateGame(data);
     await res.redirect('/game');
   },
 ];
+
+exports.createGameGet = async (req, res) => {
+  res.render('/index', { title: 'create a game', content: 'createGame' });
+};
